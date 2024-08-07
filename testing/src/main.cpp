@@ -74,5 +74,15 @@ void autonomous() {}
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-
+	while(true){
+		//control drive
+		setDriveMotors();
+		//control intake
+		setIntakeMotors();
+		//control lift
+		setLiftMotor();
+		//control angler
+		setAnglerMotor();
+		pros::delay(10);//motors update voltage values every 10 millisec
+	}
 }
