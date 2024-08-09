@@ -80,6 +80,7 @@ void opcontrol(void);
 #include "subsystemHeaders/globals.hpp"
 #include "subsystemHeaders/intake.hpp"
 #include "subsystemHeaders/lift.hpp"
+#include "subsystemHeaders/autonomousHeaders.hpp"
 
 #endif
 

@@ -24,9 +24,23 @@ void on_center_button() {
  */
 void initialize() {
 	pros::lcd::initialize();
-	pros::lcd::set_text(1, "Hello PROS User!");
+	pros::lcd::set_text(1, "32092D");
 
-	pros::lcd::register_btn1_cb(on_center_button);
+	//pros::lcd::register_btn1_cb(on_center_button);
+	
+	//motor breaks
+	driveLeftBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	driveRightBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	driveLeftFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	driveRightFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	lift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	angler.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	intakeLeft.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	intakeRight.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+
+	pros::ADIGyro gyro('B', .091);
+	pros::delay(2000); //give it 2 sec to calibrate
+	//don't start autonomous until at least 2 seconds after controller is connected
 }
 
 /**
@@ -58,7 +72,12 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
+void autonomous() {
+	//redLeftCorner();
+	//redRightCorner();
+	//blueLeftCorner();
+	//blueLeftCorner();
+}
 
 /**
  * Runs the operator control code. This function will be started in its own task

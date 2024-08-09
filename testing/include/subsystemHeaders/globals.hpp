@@ -1,5 +1,5 @@
 //motors controller etc
-#include "main.h"
+#pragma once
 
 //motors
 extern pros::Motor lift;
@@ -15,3 +15,4 @@ extern pros::Controller controller;
 
 //miscellaneous
 //ex: #define ANGLER_POT_VERTICAL 3000 //number for angle potentiometer for going straight
+extern pros::ADIGyro gyro;

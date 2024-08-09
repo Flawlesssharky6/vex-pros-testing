@@ -1,4 +1,4 @@
-#include "main.h"
+#pragma once
 
 //helper function
 void setIntake(int left, int right);

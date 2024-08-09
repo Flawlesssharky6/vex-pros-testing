@@ -1,4 +1,4 @@
-#include "main.h"
+#pragma once
 
 //helper functions
 void setAngler(int power);
