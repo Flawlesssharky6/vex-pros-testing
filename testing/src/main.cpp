@@ -73,6 +73,8 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
+	//uncomment the run case
+	
 	//redLeftCorner();
 	//redRightCorner();
 	//blueLeftCorner();

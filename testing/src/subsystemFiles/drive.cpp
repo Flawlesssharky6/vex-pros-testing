@@ -61,3 +61,34 @@ void translate(int units, int voltage){
     //set drive back to nuetral
     setDrive(0,0);
 }
+
+void rotate(int degrees, int voltage){
+    //define direction based on the units provided
+    //if turn left use positive number, if right use negative number
+    int direction = abs(degrees)/degrees;
+    //resetting the gyro
+    gyro.reset();
+    //turn intil units are reached
+    setDrive(-voltage * direction, voltage * direction);
+    //turn until units - 5 degrees is reached
+    while(fabs(gyro.get_value()) < abs(degrees*10) - 50){ //subract a little from target degrees to anticipate over turning (hopefully saves time)
+        pros::delay(10);
+    }
+    //let robot lose momentum
+    setDrive(0,0);
+    pros::delay(100); //wait until the robot completely stops (based on weight)
+    //correct over or under shoot
+    if(fabs(gyro.get_value()) > abs(degrees * 10)){
+        setDrive(.5 * voltage * direction, .5 * -voltage * direction);
+        while(fabs(gyro.get_value()) > abs(degrees*10)){
+            pros::delay(10);
+        } 
+    }else if (fabs(gyro.get_value()) < abs(degrees*10)){
+        setDrive(.5 * -voltage * direction, .5 * voltage * direction);
+        while(fabs(gyro.get_value()) < abs(degrees*10) - 50){ //subract a little from target degrees to anticipate over turning (hopefully saves time)
+            pros::delay(10);
+        }
+    }
+    //reset drive to zero
+    setDrive(0,0);
+}
