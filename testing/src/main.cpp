@@ -79,6 +79,8 @@ void autonomous() {
 	//redRightCorner();
 	//blueLeftCorner();
 	//blueLeftCorner();
+	conveyorIntake(500);
+	conveyorOuttake(500);
 }
 
 /**
@@ -101,9 +103,10 @@ void opcontrol() {
 		//control intake
 		setIntakeMotors();
 		//control lift
-		setLiftMotor();
+		//setLiftMotor();
 		//control angler
-		setAnglerMotor();
+		//setAnglerMotor();
+		setConveyorMotor();
 		pros::delay(10);//motors update voltage values every 10 millisec
 	}
 }

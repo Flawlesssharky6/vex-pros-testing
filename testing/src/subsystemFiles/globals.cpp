@@ -9,6 +9,7 @@ pros::Motor driveLeftBack(-5, pros::v5::MotorGears::green, pros::v5::MotorUnits:
 pros::Motor driveLeftFront(-6, pros::v5::MotorGears::green, pros::v5::MotorUnits::counts);
 pros::Motor driveRightBack(7, pros::v5::MotorGears::green, pros::v5::MotorUnits::counts);
 pros::Motor driveRightFront(8, pros::v5::MotorGears::green, pros::v5::MotorUnits::counts);
+pros::Motor conveyor(9, pros::v5::MotorGears::green, pros::v5::MotorUnits::counts);
 
 //controller
 pros::Controller controller(pros::E_CONTROLLER_MASTER);

@@ -81,6 +81,7 @@ void opcontrol(void);
 #include "subsystemHeaders/intake.hpp"
 #include "subsystemHeaders/lift.hpp"
 #include "subsystemHeaders/autonomousHeaders.hpp"
+#include "subsystemHeaders/conveyor.hpp"
 
 #endif
 
