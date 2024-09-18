@@ -1,6 +1,7 @@
 #include "main.h"
 
-pros::ADIGyro gyro('B', 0.91); //second parameter is angler scaler in case gyro is off 
+pros::ADIGyro gyro(20);
+//pros::ADIGyro gyro('B', 0.91); //second parameter is angler scaler in case gyro is off 
 //you can leave the scaler off (ex: if you turn 90 degrees but gyro returns 800)
 //when turn left gyro value is positive, and turn right is negative
 //if values gyro values are flipped then switch wires so three pins are plugged in opposite way
@@ -11,6 +12,8 @@ void setDrive(int left, int right){
     driveLeftFront.move(left);
     driveRightBack.move(right);
     driveRightFront.move(right);
+    driveRightMiddle.move(right);
+    driveLeftMiddle.move(left);
 }
 
 void resetDriveEncoders(){
@@ -18,13 +21,17 @@ void resetDriveEncoders(){
     driveLeftFront.tare_position();
     driveRightBack.tare_position();
     driveRightFront.tare_position();
+    driveRightMiddle.tare_position();
+    driveLeftMiddle.tare_position();
 }
 
 double avgDriveEncoderValue(){
     return (fabs(driveLeftFront.get_position()) +
     fabs(driveLeftBack.get_position()) +
     fabs(driveRightFront.get_position()) +
-    fabs(driveRightBack.get_position())) / 4;
+    fabs(driveRightBack.get_position())) +
+    fabs(driveLeftMiddle.get_position()) +
+    fabs(driveRightMiddle.get_position())/ 4;
 }
 
 //driver control functions
@@ -36,7 +43,7 @@ void setDriveMotors(){
     if(abs(leftJoyStick) < 10){
         leftJoyStick = 0;
     }
-    if(abs(leftJoyStick) < 10){
+    if(abs(rightJoyStick) < 10){
         rightJoyStick = 0;
     }
     setDrive(leftJoyStick, rightJoyStick);
@@ -52,7 +59,7 @@ void translate(int units, int voltage){
     //drive forward until units are reached
     while(avgDriveEncoderValue() < fabs(units)){
         setDrive(voltage * direction + gyro.get_value(), voltage * direction - gyro.get_value()); //scale gyro value if over or under correcting
-        //genrally don't have to worry about over correcting
+        //generally don't have to worry about over correcting
         pros::delay(10);
     }
     //brief brake
