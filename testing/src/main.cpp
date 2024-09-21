@@ -33,12 +33,15 @@ void initialize() {
 	driveRightBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 	driveLeftFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 	driveRightFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
-	lift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-	angler.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	driveRightMiddle.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	driveLeftMiddle.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	//lift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	//angler.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	intakeLeft.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	intakeRight.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 
-	pros::ADIGyro gyro('B', .091);
+	gyroscope.reset();
+	//pros::ADIGyro gyro('B', .091);
 	pros::delay(2000); //give it 2 sec to calibrate
 	//don't start autonomous until at least 2 seconds after controller is connected
 }
@@ -85,7 +88,7 @@ void autonomous() {
 
 /**
  * Runs the operator control code. This function will be started in its own task
- * with the default priority and stack size whenever the robot is enabled via
+ * with the default priority and stack size 3 the robot is enabled via
  * the Field Management System or the VEX Competition Switch in the operator
  * control mode.
  *
@@ -98,6 +101,7 @@ void autonomous() {
  */
 void opcontrol() {
 	while(true){
+		pros::lcd::set_text(3, std::to_string(gyroscope.get_heading()));
 		//control drive
 		setDriveMotors();
 		//control intake

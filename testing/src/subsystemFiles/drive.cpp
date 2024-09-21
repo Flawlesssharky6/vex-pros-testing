@@ -1,6 +1,7 @@
 #include "main.h"
 
-pros::ADIGyro gyro(20);
+//note: change gyro from ADI to IMU
+//pros::ADIGyro gyro(20);
 //pros::ADIGyro gyro('B', 0.91); //second parameter is angler scaler in case gyro is off 
 //you can leave the scaler off (ex: if you turn 90 degrees but gyro returns 800)
 //when turn left gyro value is positive, and turn right is negative
@@ -55,10 +56,10 @@ void translate(int units, int voltage){
     int direction = abs(units)/units; //either 1 or -1
     //reset motor encoders (I want to try to add to current units instead of reseting)
     resetDriveEncoders();
-    gyro.reset();
+    gyroscope.tare_heading();
     //drive forward until units are reached
     while(avgDriveEncoderValue() < fabs(units)){
-        setDrive(voltage * direction + gyro.get_value(), voltage * direction - gyro.get_value()); //scale gyro value if over or under correcting
+        setDrive(voltage * direction + gyroscope.get_heading()*10, voltage * direction - gyroscope.get_heading()*10); //scale gyroscope heading if over or under correcting
         //generally don't have to worry about over correcting
         pros::delay(10);
     }
@@ -74,25 +75,25 @@ void rotate(int degrees, int voltage){
     //if turn left use positive number, if right use negative number
     int direction = abs(degrees)/degrees;
     //resetting the gyro
-    gyro.reset();
+    gyroscope.tare_heading();
     //turn intil units are reached
     setDrive(-voltage * direction, voltage * direction);
     //turn until units - 5 degrees is reached
-    while(fabs(gyro.get_value()) < abs(degrees*10) - 50){ //subract a little from target degrees to anticipate over turning (hopefully saves time)
+    while(fabs(gyroscope.get_heading()) < abs(degrees) - 5){ //subract a little from target degrees to anticipate over turning (hopefully saves time)
         pros::delay(10);
     }
     //let robot lose momentum
     setDrive(0,0);
     pros::delay(100); //wait until the robot completely stops (based on weight)
     //correct over or under shoot
-    if(fabs(gyro.get_value()) > abs(degrees * 10)){
+    if(fabs(gyroscope.get_heading()) > abs(degrees)){
         setDrive(.5 * voltage * direction, .5 * -voltage * direction);
-        while(fabs(gyro.get_value()) > abs(degrees*10)){
+        while(fabs(gyroscope.get_heading()) > abs(degrees)){
             pros::delay(10);
         } 
-    }else if (fabs(gyro.get_value()) < abs(degrees*10)){
+    }else if (fabs(gyroscope.get_heading()) < abs(degrees)){
         setDrive(.5 * -voltage * direction, .5 * voltage * direction);
-        while(fabs(gyro.get_value()) < abs(degrees*10) - 50){ //subract a little from target degrees to anticipate over turning (hopefully saves time)
+        while(fabs(gyroscope.get_heading()) < abs(degrees) - 5){ //subract a little from target degrees to anticipate over turning (hopefully saves time)
             pros::delay(10);
         }
     }

@@ -1,3 +1,5 @@
+/*
+
 #include "main.h"
 
 pros::ADIPotentiometer anglerPot('A'); //port A
@@ -14,3 +16,5 @@ void setAnglerMotor(){
     controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN));
     setAngler(anglerPower);
 }
+
+*/

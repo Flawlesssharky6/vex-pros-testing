@@ -1,3 +1,5 @@
+/*
+
 #include "main.h"
 
 //helper functions 
@@ -12,3 +14,5 @@ void setLiftMotor(){
     controller.get_digital(pros::E_CONTROLLER_DIGITAL_R2));
     setLift(liftPower);
 }
+
+*/
