@@ -37,17 +37,19 @@ double avgDriveEncoderValue(){
 
 //driver control functions
 void setDriveMotors(){
-    //tank drive
-    int leftJoyStick = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
-    int rightJoyStick = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
+    //Stick drive
+    int power = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
+    int turn = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
     //set dead zone for joystick
-    if(abs(leftJoyStick) < 10){
-        leftJoyStick = 0;
+    if(abs(power) < 10){
+        power = 0;
     }
-    if(abs(rightJoyStick) < 10){
-        rightJoyStick = 0;
+    if(abs(turn) < 10){
+        turn = 0;
     }
-    setDrive(leftJoyStick, rightJoyStick);
+    int leftSpeed = power + turn;
+    int rightSpeed = power - turn;
+    setDrive(leftSpeed, rightSpeed);
 }
 
 //autonomous functions

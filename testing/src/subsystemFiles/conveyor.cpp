@@ -1,3 +1,4 @@
+/*
 #include "main.h"
 
 //helper functions
@@ -31,3 +32,4 @@ void conveyorOuttake(int millisec){
     pros::delay(50);
     setConveyor(0);
 }
+*/

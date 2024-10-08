@@ -37,8 +37,11 @@ void initialize() {
 	driveLeftMiddle.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 	//lift.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	//angler.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-	intakeLeft.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-	intakeRight.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	//intakeLeft.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	intake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	conveyor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+
+	//pneumatic.set_value(false);
 
 	gyroscope.reset();
 	//pros::ADIGyro gyro('B', .091);
@@ -82,8 +85,8 @@ void autonomous() {
 	//redRightCorner();
 	//blueLeftCorner();
 	//blueLeftCorner();
-	conveyorIntake(500);
-	conveyorOuttake(500);
+	//conveyorIntake(500);
+	//conveyorOuttake(500);
 }
 
 /**
@@ -104,13 +107,19 @@ void opcontrol() {
 		pros::lcd::set_text(3, std::to_string(gyroscope.get_heading()));
 		//control drive
 		setDriveMotors();
+		setPneumaticPiston();
+		setConveyorMotors();
 		//control intake
-		setIntakeMotors();
+		//setIntakeMotors();
+
 		//control lift
 		//setLiftMotor();
+
 		//control angler
 		//setAnglerMotor();
-		setConveyorMotor();
+
+		//control conveyor motor
+		//setConveyorMotor();
 		pros::delay(10);//motors update voltage values every 10 millisec
 	}
 }

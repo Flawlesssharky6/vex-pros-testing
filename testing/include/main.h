@@ -78,10 +78,12 @@ void opcontrol(void);
 //#include "subsystemHeaders/angler.hpp"
 #include "subsystemHeaders/drive.hpp"
 #include "subsystemHeaders/globals.hpp"
-#include "subsystemHeaders/intake.hpp"
+//#include "subsystemHeaders/intake.hpp"
 //#include "subsystemHeaders/lift.hpp"
+#include "subsystemHeaders/conveyorMechanism.hpp"
 #include "subsystemHeaders/autonomousHeaders.hpp"
-#include "subsystemHeaders/conveyor.hpp"
+//#include "subsystemHeaders/conveyor.hpp"
+#include "subsystemHeaders/pneumatics.hpp"
 
 #endif
 
