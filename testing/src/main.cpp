@@ -24,7 +24,8 @@ void on_center_button() {
  */
 void initialize() {
 	pros::lcd::initialize();
-	pros::lcd::set_text(1, "32092D");
+	pros::lcd::set_text(1, "hello");
+	pros::lcd::set_text(2, "Hello");
 
 	//pros::lcd::register_btn1_cb(on_center_button);
 	
@@ -109,6 +110,7 @@ void opcontrol() {
 		setDriveMotors();
 		setPneumaticPiston();
 		setConveyorMotors();
+		setIntakePneumatic();
 		//control intake
 		//setIntakeMotors();
 

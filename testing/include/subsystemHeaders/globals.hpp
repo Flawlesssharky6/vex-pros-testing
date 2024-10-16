@@ -18,6 +18,7 @@ extern pros::Controller controller;
 
 //miscellaneous
 extern pros::Imu gyroscope;
-extern pros::ADIDigitalOut pneumatic;
+extern pros::ADIDigitalOut clampPneumatic;
+extern pros::ADIDigitalOut intakePneumatic;
 //ex: #define ANGLER_POT_VERTICAL 3000 //number for angle potentiometer for going straight
 //extern pros::ADIGyro gyro;

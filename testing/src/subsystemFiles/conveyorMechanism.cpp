@@ -17,6 +17,16 @@ void setConveyorMotors(){
     setConveyorMechanism(motorPower);
 }
 
+void setIntakePneumatic(){
+    //Button X lets pneumatics down, Botton Y lets pneumatics up
+    if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_X)) {
+        intakePneumatic.set_value(true);  // Activate solenoid
+    } else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_Y)){
+        intakePneumatic.set_value(false);  // Deactivate solenoid
+    }
+    pros::delay(20);
+}
+
 //autonomous functions
 void conveyorIntake(int millisec){
     setConveyorMechanism(127);

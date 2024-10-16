@@ -17,4 +17,5 @@ pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 //miscellaneous
 pros::Imu gyroscope(20);
-pros::ADIDigitalOut pneumatic('H');
+pros::ADIDigitalOut clampPneumatic('H');
+pros::ADIDigitalOut intakePneumatic('G');
