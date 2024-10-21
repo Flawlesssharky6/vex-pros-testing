@@ -83,7 +83,7 @@ void autonomous() {
 	//uncomment the run case
 	
 	//redLeftCorner();
-	//redRightCorner();
+	redRightCorner();
 	//blueLeftCorner();
 	//blueLeftCorner();
 	//conveyorIntake(500);

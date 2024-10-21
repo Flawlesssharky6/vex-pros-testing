@@ -53,6 +53,7 @@ void setDriveMotors(){
 }
 
 //autonomous functions
+// 1 unit = 1 rotation of the wheel = circumfrence of wheel
 void translate(int units, int voltage){
     //define direction based on units provided
     int direction = abs(units)/units; //either 1 or -1
