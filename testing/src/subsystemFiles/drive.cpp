@@ -62,7 +62,7 @@ void translate(int units, int voltage){
     gyroscope.tare_heading();
     //drive forward until units are reached
     while(avgDriveEncoderValue() < fabs(units)){
-        setDrive(voltage * direction + gyroscope.get_heading()*10, voltage * direction - gyroscope.get_heading()*10); //scale gyroscope heading if over or under correcting
+        setDrive(voltage * direction, voltage * direction); //scale gyroscope heading if over or under correcting
         //generally don't have to worry about over correcting
         pros::delay(10);
     }
