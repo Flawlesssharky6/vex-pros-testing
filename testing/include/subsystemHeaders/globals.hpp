@@ -13,6 +13,7 @@ extern pros::Motor driveRightFront;
 extern pros::Motor conveyor;
 extern pros::Motor driveRightMiddle;
 extern pros::Motor driveLeftMiddle;
+extern pros::Motor ladyBrownMotor;
 //controller
 extern pros::Controller controller;
 
