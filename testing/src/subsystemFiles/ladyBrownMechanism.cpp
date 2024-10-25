@@ -1,8 +1,8 @@
 #include "main.h"
 
 //helper functions
-int setLadyBrownMechanism(int power){
-ladyBrownMotor.move(power);
+void setLadyBrownMechanism(int power){
+    ladyBrownMotor.move(power);
 }
 
 //driver functions
@@ -14,4 +14,5 @@ void setLadyBrownMotor(){
     - controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN));
 
     setLadyBrownMechanism(motorPower);
+    pros::delay(20);
 }

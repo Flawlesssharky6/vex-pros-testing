@@ -27,12 +27,12 @@ void resetDriveEncoders(){
 }
 
 double avgDriveEncoderValue(){
-    return (fabs(driveLeftFront.get_position()) +
+    return ((fabs(driveLeftFront.get_position()) +
     fabs(driveLeftBack.get_position()) +
     fabs(driveRightFront.get_position()) +
-    fabs(driveRightBack.get_position())) +
+    fabs(driveRightBack.get_position()) +
     fabs(driveLeftMiddle.get_position()) +
-    fabs(driveRightMiddle.get_position())/ 4;
+    fabs(driveRightMiddle.get_position()))/ 6);
 }
 
 //driver control functions

@@ -1,7 +1,7 @@
 #pragma once 
 
 //helper functions
-int setLadyBrownMechanism(int power);
+void setLadyBrownMechanism(int power);
 
 //driver functions
 void setLadyBrownMotor();

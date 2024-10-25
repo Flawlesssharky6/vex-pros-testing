@@ -105,7 +105,7 @@ void autonomous() {
  */
 void opcontrol() {
 	while(true){
-		pros::lcd::set_text(3, std::to_string(gyroscope.get_heading()));
+		//pros::lcd::set_text(3, std::to_string(gyroscope.get_heading()));
 		//control drive
 		setDriveMotors();
 		setPneumaticPiston();
