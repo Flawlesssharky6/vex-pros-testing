@@ -41,7 +41,7 @@ void initialize() {
 	//intakeLeft.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	intake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	conveyor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-	ladyBrownMotor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	ladyBrownMotor.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	//pneumatic.set_value(false);
 
 	gyroscope.reset();

@@ -12,7 +12,7 @@ pros::Motor driveRightFront(1, pros::v5::MotorGears::blue, pros::v5::MotorUnits:
 pros::Motor conveyor(4, pros::v5::MotorGears::rpm_200, pros::v5::MotorUnits::counts);
 pros::Motor driveLeftMiddle(-16, pros::v5::MotorGears::blue, pros::v5::MotorUnits::counts);
 pros::Motor driveRightMiddle(6, pros::v5::MotorGears::blue, pros::v5::MotorUnits::counts);
-pros::Motor ladyBrownMotor(18, pros::v5::MotorGears::green, pros::v5::MotorUnits::counts);
+pros::Motor ladyBrownMotor(-18, pros::v5::MotorGears::red, pros::v5::MotorUnits::counts);
 //controller
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
