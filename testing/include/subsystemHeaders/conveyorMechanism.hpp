@@ -1,7 +1,7 @@
 #pragma once
 
 //helper functions
-void setConveyor(int power);
+void setConveyorMechanism(int power);
 
 //driver control functions
 void setConveyorMotors();

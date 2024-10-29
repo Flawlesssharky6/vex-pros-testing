@@ -1,6 +1,8 @@
 #pragma once
 
 //different run cases
+void autoSkills();
+
 void redLeftCorner();
 
 void redRightCorner();

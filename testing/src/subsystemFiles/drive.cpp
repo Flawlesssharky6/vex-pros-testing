@@ -9,6 +9,15 @@
 
 //helper functions
 void setDrive(int left, int right){
+    driveLeftBack.move_velocity(left);
+    driveLeftFront.move_velocity(left);
+    driveRightBack.move_velocity(right);
+    driveRightFront.move_velocity(right);
+    driveRightMiddle.move_velocity(right);
+    driveLeftMiddle.move_velocity(left);
+}
+
+void setDriveDriver(int left, int right){ //when on move_velocity, driver control is really weird
     driveLeftBack.move(left);
     driveLeftFront.move(left);
     driveRightBack.move(right);
@@ -49,12 +58,12 @@ void setDriveMotors(){
     }
     int leftSpeed = power + turn;
     int rightSpeed = power - turn;
-    setDrive(leftSpeed, rightSpeed);
+    setDriveDriver(leftSpeed, rightSpeed);
 }
 
 //autonomous functions
 // 1 unit = 1 rotation of the wheel = circumfrence of wheel
-void translate(int units, int voltage){
+void translate(int units, int velocity){
     //define direction based on units provided
     int direction = abs(units)/units; //either 1 or -1
     //reset motor encoders (I want to try to add to current units instead of reseting)
@@ -62,7 +71,7 @@ void translate(int units, int voltage){
     gyroscope.tare_heading();
     //drive forward until units are reached
     while(avgDriveEncoderValue() < fabs(units)){
-        setDrive(voltage * direction + gyroscope.get_heading()*10, voltage * direction - gyroscope.get_heading()*10); //scale gyroscope heading if over or under correcting
+        setDrive(velocity * direction, velocity * direction); //scale gyroscope heading if over or under correcting
         //generally don't have to worry about over correcting
         pros::delay(10);
     }
@@ -73,23 +82,23 @@ void translate(int units, int voltage){
     setDrive(0,0);
 }
 
-void rotate(int degrees, int voltage){
+void rotate(int degrees, int velocity){
     //define direction based on the units provided
     //if turn left use positive number, if right use negative number
+    //degrees = degrees *.75;
     int direction = abs(degrees)/degrees;
-    //resetting the gyro
-    gyroscope.tare_heading();
+    int currentHeading = fabs(gyroscope.get_heading());
     //turn intil units are reached
-    setDrive(-voltage * direction, voltage * direction);
+    setDrive(velocity * direction, -velocity * direction);
     //turn until units - 5 degrees is reached
-    while(fabs(gyroscope.get_heading()) < abs(degrees) - 5){ //subract a little from target degrees to anticipate over turning (hopefully saves time)
+    while(fabs(gyroscope.get_heading()) < (abs(degrees)+currentHeading)-5){ //subract a little from target degrees to anticipate over turning (hopefully saves time)
         pros::delay(10);
     }
     //let robot lose momentum
     setDrive(0,0);
-    pros::delay(100); //wait until the robot completely stops (based on weight)
+    //pros::delay(100); //wait until the robot completely stops (based on weight)
     //correct over or under shoot
-    if(fabs(gyroscope.get_heading()) > abs(degrees)){
+    /*if(fabs(gyroscope.get_heading()) > abs(degrees)){
         setDrive(.5 * voltage * direction, .5 * -voltage * direction);
         while(fabs(gyroscope.get_heading()) > abs(degrees)){
             pros::delay(10);
@@ -101,5 +110,5 @@ void rotate(int degrees, int voltage){
         }
     }
     //reset drive to zero
-    setDrive(0,0);
+    setDrive(0,0);*/
 }

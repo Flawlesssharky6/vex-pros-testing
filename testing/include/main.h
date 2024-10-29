@@ -84,6 +84,7 @@ void opcontrol(void);
 #include "subsystemHeaders/autonomousHeaders.hpp"
 //#include "subsystemHeaders/conveyor.hpp"
 #include "subsystemHeaders/pneumatics.hpp"
+#include "subsystemHeaders/ladyBrownMechanism.hpp"
 
 #endif
 

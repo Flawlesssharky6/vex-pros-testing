@@ -3,6 +3,8 @@
 //helper functions
 void setDrive(int left, int right);
 
+void setDriveDriver(int left, int right);
+
 void resetDriveEncoders();
 
 double avgDriveEncoderValue();
@@ -13,5 +15,5 @@ void setDriveMotors();
 //autonomous functions
 void translate(int units, int voltage);
 
-void rotate(int degrees, int voltage);
+void rotate(int degrees, int velocity);
 
