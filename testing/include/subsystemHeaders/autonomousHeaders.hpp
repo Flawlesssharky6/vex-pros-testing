@@ -1,5 +1,6 @@
 #pragma once
 
+void testing();
 //different run cases
 void autoSkills();
 

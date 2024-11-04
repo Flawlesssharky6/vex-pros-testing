@@ -3,7 +3,6 @@
 //helper functions
 void setLadyBrownMechanism(int power){
 ladyBrownMotor.move(power);
-ladyBrownMotor.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 }
 
 //driver functions
@@ -15,4 +14,39 @@ void setLadyBrownMotor(){
     - controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN));
     setLadyBrownMechanism(motorPower);
     pros::delay(20);
+}
+
+//driver macros
+void resetLadyBrown(){
+
+}
+void prepareLadyBrown(){
+
+}
+void extendLadyBrown(){
+
+}
+
+//autonomous functions
+void turnLadyBrownMotor(){
+    rotationSensor.reset();
+    double targetAngleChange = 100;
+    //get_angle returns in centidegrees (0-36000)
+    //spin up
+    while (rotationSensor.get_angle()< targetAngleChange*100){ //convert to centidegrees
+        ladyBrownMotor.move_velocity(100);
+        pros::delay(20);
+    }
+    ladyBrownMotor.brake();
+    ladyBrownMotor.move_velocity(0);
+    pros::delay(50);
+    rotationSensor.reverse();
+    //spin down
+    while (rotationSensor.get_angle()> 5000){
+        ladyBrownMotor.move_velocity(-100);
+        pros::delay(20);
+    }
+    ladyBrownMotor.brake();
+    ladyBrownMotor.move_velocity(0);
+    pros::delay(50);
 }

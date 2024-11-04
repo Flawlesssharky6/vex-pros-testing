@@ -16,7 +16,9 @@ pros::Motor ladyBrownMotor(-18, pros::v5::MotorGears::red, pros::v5::MotorUnits:
 //controller
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
-//miscellaneous
+//sensors
 pros::Imu gyroscope(19);
+pros::Rotation rotationSensor(3);
+//pneumatics
 pros::ADIDigitalOut clampPneumatic('H');
 pros::ADIDigitalOut intakePneumatic('G');

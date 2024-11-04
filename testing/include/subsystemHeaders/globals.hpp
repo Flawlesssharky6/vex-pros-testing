@@ -17,8 +17,10 @@ extern pros::Motor ladyBrownMotor;
 //controller
 extern pros::Controller controller;
 
-//miscellaneous
+//sensors
 extern pros::Imu gyroscope;
+extern pros::Rotation rotationSensor;
+//pneumatics
 extern pros::ADIDigitalOut clampPneumatic;
 extern pros::ADIDigitalOut intakePneumatic;
 //ex: #define ANGLER_POT_VERTICAL 3000 //number for angle potentiometer for going straight

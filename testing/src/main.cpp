@@ -41,8 +41,9 @@ void initialize() {
 	//intakeLeft.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	intake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	conveyor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	ladyBrownMotor.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	//pneumatic.set_value(false);
-
+	rotationSensor.reset();
 	gyroscope.reset();
 	//pros::ADIGyro gyro('B', .091);
 	pros::delay(2000); //give it 2 sec to calibrate
@@ -80,7 +81,7 @@ void competition_initialize() {}
  */
 void autonomous() {
 	//uncomment the run case
-	
+	//testing();
 	autoSkills();
 	//redLeftCorner();
 	//redRightCorner();
@@ -107,7 +108,7 @@ void opcontrol() {
 	while(true){
 		pros::lcd::set_text(3, std::to_string(gyroscope.get_heading()));
 		//control drive
-		gyroscope.get_heading();
+		//gyroscope.get_heading();
 		setDriveMotors();
 		setPneumaticPiston();
 		setConveyorMotors();

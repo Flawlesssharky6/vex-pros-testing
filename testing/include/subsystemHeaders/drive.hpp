@@ -13,7 +13,7 @@ double avgDriveEncoderValue();
 void setDriveMotors();
 
 //autonomous functions
-void translate(int units, int voltage);
+void translate(double units, int voltage);
 
-void rotate(int degrees, int velocity);
+void rotateClockWise(int degrees, int velocity);
 

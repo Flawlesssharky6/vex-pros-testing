@@ -1,3 +1,4 @@
+/*
 #include "main.h"
 
 //note: change gyro from ADI to IMU
@@ -82,7 +83,7 @@ void translate(int units, int velocity){
     setDrive(0,0);
 }
 
-void rotate(int degrees, int velocity){
+void rotateClockWise(int degrees, int velocity){
     //define direction based on the units provided
     //if turn left use positive number, if right use negative number
     //degrees = degrees *.75;
@@ -98,7 +99,8 @@ void rotate(int degrees, int velocity){
     setDrive(0,0);
     //pros::delay(100); //wait until the robot completely stops (based on weight)
     //correct over or under shoot
-    /*if(fabs(gyroscope.get_heading()) > abs(degrees)){
+    /*
+    if(fabs(gyroscope.get_heading()) > abs(degrees)){
         setDrive(.5 * voltage * direction, .5 * -voltage * direction);
         while(fabs(gyroscope.get_heading()) > abs(degrees)){
             pros::delay(10);
@@ -110,5 +112,11 @@ void rotate(int degrees, int velocity){
         }
     }
     //reset drive to zero
-    setDrive(0,0);*/
+    setDrive(0,0);
+    //*/
+
+    /*
 }
+*/
+
+
