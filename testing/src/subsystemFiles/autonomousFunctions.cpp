@@ -1,60 +1,29 @@
 #include "main.h"
 
 void testing(){
-    translate(-1000, 200);
+    setDrive(200,-200);
+    pros::delay(1025);
+    setDrive(0,0);
+    //translate(-1000, 200);
     //rotateClockWise(180,200);
 }
 void autoSkills(){
+    gyroscope.reset();
+    pros::delay(2000);
     intakePneumatic.set_value(true); //set intake down
     pros::delay(40);
-    //clampPneumatic.set_value(true); //open clamp
     conveyorIntake(1000);
     translate(2700, 200);
     clampPneumatic.set_value(true);
-    pros::delay(50);
-    rotateClockWise(270, 200);
-    pros::delay(10);
+    timedTurn(500);
     translate(-3000, 200);
-    pros::delay(10);
     setDrive(-80,-80);
     pros::delay(1000);
     clampPneumatic.set_value(false);
-    setDrive(0,0);
-    pros::delay(50);
-    rotateClockWise(180, 200);
-    pros::delay(200000000000000000000000);
+    timedTurn(1000);
     setConveyorMechanism(127);
-    pros::delay(10);
-    translate(4000, 200);
-    //translate(2000, 200); //move to ring
-    //rotate(90, 200);
-    //translate(2000,200);
-    //rotate(90, 200);
-    //translate(2000, 200);
-    //translate(-1000, 200);
-    //rotate(90, 200);
-    //translate(200,200);
-    //rotate(315, 100);
-    //translate(1000,200);
-    //clampPneumatic.set_value(true);
-    //translate(-1000, 200);
-
-
-
-
-    /*intakePneumatic.set_value(true); //set intake down
-    clampPneumatic.set_value(true); //open clamp
-    translate(-1000, 70); //drive to stake
-    clampPneumatic.set_value(false); //clamp it
-    conveyorIntake(1500); //spin conveyor
-    setDrive(60,-60); //turn towards corner
-    pros::delay(500);
-    setDrive(0,0);
-    setDrive(-100,-100);
-    pros::delay(5000);
-    setDrive(0,0);
-    clampPneumatic.set_value(true);
-    translate(3000, 70);*/
+    translate(10000, 200);
+    
 }
 void redLeftCorner(){
     intakePneumatic.set_value(true); //set intake down

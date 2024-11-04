@@ -17,3 +17,4 @@ void translate(double units, int voltage);
 
 void rotateClockWise(int degrees, int velocity);
 
+void timedTurn(double millisec);

@@ -145,3 +145,9 @@ void rotateClockWise(int degrees, int velocity) {
     // Ensure drive is stopped at the end
     setDrive(0, 0);
 }
+
+void timedTurn(int millisec){
+    setDrive(200,-200);
+    pros::delay(millisec);
+    setDrive(0,0);
+}
