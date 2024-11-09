@@ -1,9 +1,9 @@
 #pragma once
 
 //helper functions
-void setDrive(int left, int right);
+void setDriveVelocity(int left, int right);
 
-void setDriveDriver(int left, int right);
+void setDrive(int left, int right);
 
 void resetDriveEncoders();
 
@@ -13,8 +13,14 @@ double avgDriveEncoderValue();
 void setDriveMotors();
 
 //autonomous functions
-void translate(double units, int voltage);
+void velocityTranslate(int units, int velocity);
+
+void translate(int units, int voltage);
+
+void rotate(int degrees, int voltage);
 
 void rotateClockWise(int degrees, int velocity);
 
 void timedTurn(double millisec);
+
+void timedTurnCC(double millisec);

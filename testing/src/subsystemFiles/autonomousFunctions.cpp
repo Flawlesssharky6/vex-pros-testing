@@ -1,29 +1,50 @@
 #include "main.h"
 
 void testing(){
-    setDrive(200,-200);
-    pros::delay(1025);
-    setDrive(0,0);
+    translate(1000, 84);
+    rotate(90, 60);
+    rotate(-90, 60);
     //translate(-1000, 200);
     //rotateClockWise(180,200);
 }
+
+
 void autoSkills(){
-    gyroscope.reset();
-    pros::delay(2000);
+    //make sure it is using .move_velocity()/velocityTranslate/setDeriveVeocity
     intakePneumatic.set_value(true); //set intake down
     pros::delay(40);
     conveyorIntake(1000);
-    translate(2700, 200);
+    velocityTranslate(2700, 200);
     clampPneumatic.set_value(true);
-    timedTurn(500);
-    translate(-3000, 200);
-    setDrive(-80,-80);
+    timedTurn(475);
+    setDriveVelocity(-200,-200);
+    pros::delay(200);
+    setDriveVelocity(-100,-100);
     pros::delay(1000);
     clampPneumatic.set_value(false);
-    timedTurn(1000);
+    timedTurn(940);
     setConveyorMechanism(127);
-    translate(10000, 200);
-    
+    velocityTranslate(9100, 200);
+    velocityTranslate(-4100, 200);
+    timedTurnCC(200);
+    velocityTranslate(2000, 200);
+    timedTurnCC(830);
+    velocityTranslate(-4050,200);
+    clampPneumatic.set_value(true);
+    velocityTranslate(5200, 200);
+    timedTurnCC(825);
+    setDriveVelocity(-200,-200);
+    pros::delay(2200);
+    setDriveVelocity(-100,-100);
+    pros::delay(200);
+    clampPneumatic.set_value(false);
+    setDriveVelocity(0,0);
+    timedTurn(950);
+    velocityTranslate(9000, 200);
+    timedTurnCC(800);
+    velocityTranslate(-5000,200);
+    clampPneumatic.set_value(true);
+    velocityTranslate(2000, 200);
 }
 void redLeftCorner(){
     intakePneumatic.set_value(true); //set intake down
