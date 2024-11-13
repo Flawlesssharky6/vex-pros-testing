@@ -23,5 +23,6 @@ extern pros::Rotation rotationSensor;
 //pneumatics
 extern pros::ADIDigitalOut clampPneumatic;
 extern pros::ADIDigitalOut intakePneumatic;
+extern pros::ADIDigitalOut doinker;
 //ex: #define ANGLER_POT_VERTICAL 3000 //number for angle potentiometer for going straight
 //extern pros::ADIGyro gyro;

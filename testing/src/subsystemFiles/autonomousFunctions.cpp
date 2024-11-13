@@ -29,12 +29,12 @@ void autoSkills(){
     timedTurnCC(200);
     velocityTranslate(2000, 200);
     timedTurnCC(830);
-    velocityTranslate(-4050,200);
+    velocityTranslate(-4150,200);
     clampPneumatic.set_value(true);
-    velocityTranslate(5200, 200);
-    timedTurnCC(825);
+    velocityTranslate(5400, 200);
+    timedTurnCC(860);
     setDriveVelocity(-200,-200);
-    pros::delay(2200);
+    pros::delay(2300);
     setDriveVelocity(-100,-100);
     pros::delay(200);
     clampPneumatic.set_value(false);

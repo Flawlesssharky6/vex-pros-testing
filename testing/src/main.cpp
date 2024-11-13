@@ -105,6 +105,7 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
+	bool doinkerPiston = false;
 	while(true){
 		pros::lcd::set_text(3, std::to_string(gyroscope.get_heading()));
 		//control drive
@@ -114,6 +115,7 @@ void opcontrol() {
 		setConveyorMotors();
 		setIntakePneumatic();
 		setLadyBrownMotor();
+		doinkerPiston = setDoinker(doinkerPiston);
 		//control intake
 		//setIntakeMotors();
 

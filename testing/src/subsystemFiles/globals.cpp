@@ -22,3 +22,4 @@ pros::Rotation rotationSensor(3);
 //pneumatics
 pros::ADIDigitalOut clampPneumatic('H');
 pros::ADIDigitalOut intakePneumatic('G');
+pros::ADIDigitalOut doinker('F');

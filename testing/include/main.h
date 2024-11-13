@@ -85,6 +85,7 @@ void opcontrol(void);
 //#include "subsystemHeaders/conveyor.hpp"
 #include "subsystemHeaders/pneumatics.hpp"
 #include "subsystemHeaders/ladyBrownMechanism.hpp"
+#include "subsystemHeaders/doinker.hpp"
 
 #endif
 

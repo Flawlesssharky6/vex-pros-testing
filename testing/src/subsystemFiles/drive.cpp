@@ -201,8 +201,14 @@ void rotateClockWise(int degrees, int velocity) {
     setDriveVelocity(0, 0);
 }
 
-void timedTurn(int millisec){
+void timedTurn(double millisec){
     setDriveVelocity(200,-200);
+    pros::delay(millisec);
+    setDriveVelocity(0,0);
+}
+
+void timedTurnCC(double millisec){
+    setDriveVelocity(-200,200);
     pros::delay(millisec);
     setDriveVelocity(0,0);
 }
