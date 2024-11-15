@@ -1,9 +1,8 @@
 #include "main.h"
 
 void testing(){
-    translate(1000, 84);
-    rotate(90, 60);
-    rotate(-90, 60);
+    rotate(90, 55);
+
     //translate(-1000, 200);
     //rotateClockWise(180,200);
 }

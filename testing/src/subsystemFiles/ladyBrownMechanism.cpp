@@ -21,7 +21,21 @@ void resetLadyBrown(){
 
 }
 void prepareLadyBrown(){
-
+    if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT)){
+        if(rotationSensor.get_position() < 1800){
+            setLadyBrownMechanism(127);
+            while (rotationSensor.get_position() < 1800){
+                pros::delay(20);
+            }
+        }else if (rotationSensor.get_position() > 1800){
+            setLadyBrownMechanism(-127);
+            while (rotationSensor.get_position() > 1800){
+                pros::delay(20);
+            }
+        }
+        setLadyBrownMechanism(0);
+    }
+    
 }
 void extendLadyBrown(){
 

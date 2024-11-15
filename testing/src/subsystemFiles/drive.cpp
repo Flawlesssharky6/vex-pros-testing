@@ -49,7 +49,7 @@ double avgDriveEncoderValue(){
 void setDriveMotors(){
     //Stick drive
     int power = controller.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
-    int turn = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
+    int turn = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X)*.85;
     //set dead zone for joystick
     if(abs(power) < 10){
         power = 0;
@@ -119,9 +119,15 @@ void translate(int units, int voltage ){
     resetDriveEncoders(); // might chage to ad units onto existing instead of reseting
     gyroscope.tare_rotation();
     //drive forward until units are reached
+    /*
     while(avgDriveEncoderValue() < abs(units)){
-        setDrive(voltage * direction + gyroscope.get_rotation(), 
-        voltage * direction - gyroscope.get_rotation());
+        setDrive(voltage * direction + gyroscope.get_rotation()*.5, 
+        voltage * direction - gyroscope.get_rotation()*.5);
+        pros::delay(10);
+    }
+    */
+       while(avgDriveEncoderValue() < abs(units)){
+        setDrive(voltage * direction, voltage * direction);
         pros::delay(10);
     }
     //brief brake 
@@ -141,7 +147,7 @@ void rotate(int degrees, int voltage){
     gyroscope.tare_rotation();
     //turn until degrees -5 are reached
     setDrive(-voltage *direction, voltage *direction);
-    while(fabs(gyroscope.get_rotation()) < abs(degrees)-5){
+    while(fabs(gyroscope.get_rotation()) < abs(degrees)-8){
         pros::delay(10);
     }
     //let robot lose momentum
@@ -150,12 +156,12 @@ void rotate(int degrees, int voltage){
     //correction system
     //scale voltage values by how fast you want to correct
     if(fabs(gyroscope.get_rotation()) > abs(degrees)){
-        setDrive(voltage * direction*.3, -voltage * direction*.3);
+        setDrive(voltage * direction*.4, -voltage * direction*.4);
         while(fabs(gyroscope.get_rotation()) > abs(degrees)){
             pros::delay(10);
         }
     }else if (fabs(gyroscope.get_rotation()) < abs(degrees)){
-        setDrive(.3 * -voltage * direction, .3 * voltage * direction);
+        setDrive(.4 * -voltage * direction, .4 * voltage * direction);
         while(fabs(gyroscope.get_rotation()) < abs(degrees)){
             pros::delay(10);
         }
