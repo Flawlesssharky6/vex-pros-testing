@@ -9,6 +9,7 @@ void setLadyBrownMotor();
 //driver macros
 void resetLadyBrown();
 void prepareLadyBrown();
+//void prepareLadyBrown(void* param);
 void extendLadyBrown();
 
 //autonomous functions

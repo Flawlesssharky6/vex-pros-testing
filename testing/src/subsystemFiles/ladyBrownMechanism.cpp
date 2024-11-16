@@ -20,16 +20,17 @@ void setLadyBrownMotor(){
 void resetLadyBrown(){
 
 }
+
 void prepareLadyBrown(){
-    if(controller.get_digital(pros::E_CONTROLLER_DIGITAL_LEFT)){
+    if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)){
         if(rotationSensor.get_position() < 1800){
             setLadyBrownMechanism(127);
-            while (rotationSensor.get_position() < 1800){
+            while (rotationSensor.get_position() < 1800 && !controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)){
                 pros::delay(20);
             }
         }else if (rotationSensor.get_position() > 1800){
             setLadyBrownMechanism(-127);
-            while (rotationSensor.get_position() > 1800){
+            while (rotationSensor.get_position() > 1800 && !controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)){
                 pros::delay(20);
             }
         }
@@ -37,6 +38,29 @@ void prepareLadyBrown(){
     }
     
 }
+
+/*
+void prepareLadyBrown(void* param) {
+    while (true) { // Ensure the task can run continuously or until manually stopped
+        if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)) {
+            if (rotationSensor.get_position() < 1800) {
+                setLadyBrownMechanism(127);
+                while (rotationSensor.get_position() < 1800 && !controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)) {
+                    pros::delay(20);
+                }
+            } else if (rotationSensor.get_position() > 1800) {
+                setLadyBrownMechanism(-127);
+                while (rotationSensor.get_position() > 1800 && !controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT)) {
+                    pros::delay(20);
+                }
+            }
+            setLadyBrownMechanism(0);
+        }
+        pros::delay(50); // Prevent the loop from running excessively fast
+        pros::lcd::set_text(5, "complete");
+    }
+}
+*/
 void extendLadyBrown(){
 
 }

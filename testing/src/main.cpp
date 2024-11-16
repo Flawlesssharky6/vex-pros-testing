@@ -49,6 +49,7 @@ void initialize() {
 	//pros::ADIGyro gyro('B', .091);
 	pros::delay(2000); //give it 2 sec to calibrate
 	//don't start autonomous until at least 2 seconds after controller is connected
+	//pros::Task ladyBrownTask(prepareLadyBrown, nullptr, "LadyBrownTask");
 }
 
 /**
@@ -106,6 +107,7 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
+	
 	bool doinkerPiston = false;
 	while(true){
 		pros::lcd::set_text(3, std::to_string(gyroscope.get_heading()));
@@ -117,7 +119,6 @@ void opcontrol() {
 		setConveyorMotors();
 		setIntakePneumatic();
 		setLadyBrownMotor();
-
 		prepareLadyBrown();
 
 		doinkerPiston = setDoinker(doinkerPiston);
