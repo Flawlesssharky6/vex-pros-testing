@@ -86,10 +86,9 @@ void velocityTranslate(int units, int velocity) {
 
     // Final stop to ensure full stop and correct position if overshoot
     setDriveVelocity(0, 0);
-    pros::delay(50);
 
     // Correction for overshoot or undershoot
-    int finalEncoderValue = avgDriveEncoderValue();
+    /*int finalEncoderValue = avgDriveEncoderValue();
     if (finalEncoderValue > fabs(units)) {
         // Reverse slightly to correct overshoot
         setDriveVelocity(-0.1 * velocity * direction, -0.1 * velocity * direction);
@@ -102,7 +101,7 @@ void velocityTranslate(int units, int velocity) {
         while (avgDriveEncoderValue() < fabs(units)) {
             pros::delay(10);
         }
-    }
+    }*/
 
     // Final drive stop
     setDriveVelocity(0, 0);

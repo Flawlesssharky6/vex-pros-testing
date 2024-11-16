@@ -9,7 +9,7 @@ void testing(){
 
 
 void autoSkills(){
-    //make sure it is using .move_velocity()/velocityTranslate/setDeriveVeocity
+ //make sure it is using .move_velocity()/velocityTranslate/setDeriveVeocity
     intakePneumatic.set_value(true); //set intake down
     pros::delay(40);
     conveyorIntake(1000);
@@ -28,12 +28,12 @@ void autoSkills(){
     timedTurnCC(200);
     velocityTranslate(2000, 200);
     timedTurnCC(830);
-    velocityTranslate(-4150,200);
+    velocityTranslate(-4050,200);
     clampPneumatic.set_value(true);
-    velocityTranslate(5400, 200);
-    timedTurnCC(860);
+    velocityTranslate(5200, 200);
+    timedTurnCC(825);
     setDriveVelocity(-200,-200);
-    pros::delay(2300);
+    pros::delay(2200);
     setDriveVelocity(-100,-100);
     pros::delay(200);
     clampPneumatic.set_value(false);
@@ -48,70 +48,64 @@ void autoSkills(){
 void redLeftCorner(){
     intakePneumatic.set_value(true); //set intake down
     clampPneumatic.set_value(true); //open clamp
-    translate(-6500, 65); //drive to stake
-    clampPneumatic.set_value(false); //clamp
-    conveyorIntake(3000); //put ring on the stake
-    //rotate(90, 200);
-    translate(-6500, 65);
-
-    /*intakePneumatic.set_value(false);
-    //this is for contesting the middle stake
-    translate(22, 127); //go to center
-    clampPneumatic.set_value(true); //clamp on stake
-    conveyorIntake(3000); //put ring on the stake
-    translate(2, -127); //back up a little bit
-    //rotate(30, 60);// turn to face the corner
-    //translate(30, 127); //drive into corner
-    clampPneumatic.set_value(false); //release stake
-    translate(6, -127); // drive back some more*/
+    velocityTranslate(-3020, 100);
+    timedTurn(475);
+    setDriveVelocity(-100,-100);
+    pros::delay(143);
+    setDriveVelocity(0,0);
+    pros::delay(100);
+    conveyorIntake(1000);
+    pros::delay(100);
+    velocityTranslate(2300, 300);
+    timedTurn(800);
+    pros::delay(100);
+    velocityTranslate(-5500, 300);
+    setDriveVelocity(-100,-100);
+    pros::delay(900);
+    clampPneumatic.set_value(false);
+    setDriveVelocity(0,0);
+    rotate(-143, 55);
+    setConveyorMechanism(127);
+    translate(3000,80);
+    rotate(-93, 55);
+    translate(1900, 80);
+    rotate(-92, 55);
+    translate(4200, 80);
 }
 void redRightCorner(){
     intakePneumatic.set_value(true); //set intake down
     clampPneumatic.set_value(true); //open clamp
-    translate(-6500, 65); //drive to stake
-    clampPneumatic.set_value(false); //clamp
-    conveyorIntake(3000); //put ring on the stake
-    //rotate(-90, 200);
-    translate(-6500, 65);
-    //translate(1, 60); //drive forward a little
-    //rotate(90, 100); //trun to face the ring
-    //translate(8, 127);
-    //conveyorIntake(3000); // intake ring
-    //clampPneumatic.set_value(false); // let of stake
-    //rotate(180, 127);
-    //translate(16, 127); // move to climbing bars
 }
 void blueLeftCorner(){
     intakePneumatic.set_value(true); //set intake down
     clampPneumatic.set_value(true); //open clamp
-    translate(-6000, 65); //drive to stake
-    clampPneumatic.set_value(false); //clamp
-    conveyorIntake(3000); //put ring on the stake
-    clampPneumatic.set_value(true); //release goal
-    //translate(1, 60); //drive forward a little
-    //rotate(90, 100); //trun to face the ring
-    //translate(8, 127);
-    //conveyorIntake(3000); // intake ring
-    //clampPneumatic.set_value(false); // let of stake
-    //rotate(180, 127);
-    //translate(16, 127); // move to climbing bars*/
+    velocityTranslate(-2880, 100);
+    timedTurnCC(480);
+    setDriveVelocity(-100,-100);
+    pros::delay(200);
+    setDriveVelocity(0,0);
+    pros::delay(100);
+    conveyorIntake(1000);
+    pros::delay(100);
+    
+    velocityTranslate(2300, 300);
+    timedTurnCC(800);
+    pros::delay(100);
+    velocityTranslate(-5500, 300);
+    setDriveVelocity(-100,-100);
+    pros::delay(900);
+    clampPneumatic.set_value(false);
+    setDriveVelocity(0,0);
+    rotate(143, 55);
+    setConveyorMechanism(127);
+    translate(3000,80);
+    rotate(93, 55);
+    translate(1900, 80);
+    rotate(92, 55);
+    translate(4200, 80);
+    
 }
 void blueRightCorner(){
     intakePneumatic.set_value(true); //set intake down
     clampPneumatic.set_value(true); //open clamp
-    translate(-6000, 65); //drive to stake
-    clampPneumatic.set_value(false); //clamp
-    conveyorIntake(3000); //put ring on the stake
-    clampPneumatic.set_value(true); //release goal
-    /*intakePneumatic.set_value(false);
-    //this is for contesting the middle stake
-    clampPneumatic.set_value(false);//open up clamp
-    translate(22, 127); //go to center
-    clampPneumatic.set_value(true); //clamp on stake
-    conveyorIntake(3000); //put ring on the stake
-    translate(2, -127); //back up a little bit
-    //rotate(30, 60);// turn to face the corner
-    //translate(30, 127); //drive into corner
-    clampPneumatic.set_value(false); //release stake
-    translate(6, -127); // drive back some more*/
 }

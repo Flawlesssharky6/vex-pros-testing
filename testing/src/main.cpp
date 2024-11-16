@@ -82,12 +82,20 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
+	/*
+	driveLeftBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	driveRightBack.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	driveLeftFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	driveRightFront.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	driveRightMiddle.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	driveLeftMiddle.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+	*/
 	//uncomment the run case
-	testing();
+	//testing();
 	//autoSkills();
 	//redLeftCorner();
 	//redRightCorner();
-	//blueLeftCorner();
+	blueLeftCorner();
 	//blueLeftCorner();
 	//conveyorIntake(500);
 	//conveyorOuttake(500);
